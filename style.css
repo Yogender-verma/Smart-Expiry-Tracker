@@ -2,8 +2,21 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #6dd5ed, #2193b0);
-  color: #333;
+  background: url("super.png") no-repeat center center fixed;
+  background-size: cover;
+  
+}
+
+/* Add overlay to make image lighter */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0); /* adjust opacity here */
+  z-index: -1;
 }
 
 /* Notifications */
@@ -33,16 +46,14 @@ body {
   height: 100vh;
 }
 .login-card {
-  background: white;
+  background: rgb(0, 179, 195);
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.2);
   text-align: center;
   width: 320px;
 }
-.login-card h1 {
-  margin-bottom: 20px;
-}
+.login-card h1 { margin-bottom: 20px; }
 .login-card input {
   width: 90%;
   padding: 10px;
@@ -51,28 +62,17 @@ body {
   border: 1px solid #ccc;
 }
 .login-card button {
-  background: #2193b0;
-  color: white;
-  border: none;
+  background: white;
+  color: black;
+  border: solid;
   padding: 10px 15px;
   border-radius: 8px;
   cursor: pointer;
   margin-top: 10px;
 }
-.login-card button:hover {
-  background: #17647e;
-}
-.hint {
-  margin-top: 15px;
-  font-size: 14px;
-  color: #555;
-}
-.error-text {
-  display: none;
-  color: red;
-  font-size: 14px;
-  margin-top: 5px;
-}
+.login-card button:hover { background: #17647e; }
+.hint { margin-top: 15px; font-size: 14px; color: black; }
+.error-text { display: none; color: red; font-size: 14px; margin-top: 5px; }
 
 /* Dashboard */
 .dashboard-header {
@@ -102,9 +102,7 @@ body {
   border: none;
   cursor: pointer;
 }
-.form-container button:hover {
-  background: #17647e;
-}
+.form-container button:hover { background: #17647e; }
 table {
   width: 80%;
   margin: 20px auto;
@@ -119,12 +117,11 @@ th, td {
   border-bottom: 1px solid #ddd;
   text-align: center;
 }
-tr:hover {
-  background: #f1f1f1;
-}
-.safe { background: #e8f5e9; }
-.warning-row { background: #fff3e0; }
-.danger-row { background: #ffebee; }
+tr:hover { background: #f1f1f1; }
+.safe { background: #0c983d; }
+.warning-row { background: yellow; }
+.danger-row { background-color: #ff9800;}
+.extinct-row{ background-color: #f11d3d;}
 
 /* Floating Logout Button */
 #logoutBtn {
@@ -140,6 +137,4 @@ tr:hover {
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
-#logoutBtn:hover {
-  background: darkred;
-}
+#logoutBtn:hover { background: darkred; }

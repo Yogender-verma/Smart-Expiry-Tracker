@@ -10,6 +10,7 @@ function showNotification(message, type = "info", autoHide = false) {
   }
 }
 
+// Login
 function login() {
   const user = document.getElementById("username").value;
   const pass = document.getElementById("password").value;
@@ -23,12 +24,21 @@ function login() {
   }
 }
 
+// Allow pressing Enter to login
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Enter" && document.getElementById("loginPage").style.display !== "none") {
+    login();
+  }
+});
+
+// Logout
 function logout() {
   document.getElementById("dashboardPage").style.display = "none";
   document.getElementById("loginPage").style.display = "flex";
   showNotification("Logged out successfully!", "warning", true);
 }
 
+// Add Product
 function addProduct() {
   const name = document.getElementById("name").value;
   const qty = document.getElementById("quantity").value;
@@ -47,17 +57,21 @@ function addProduct() {
   let statusClass = "";
   let statusText = "";
 
-  if (daysLeft > 15) {
-    statusClass = "safe";
-    statusText = "Safe";
-  } else if (daysLeft > 3) {
+  if (daysLeft < 0) {
+    statusClass = "extinct-row";
+    statusText = "Expired (Throw Away)";
+    showNotification(`${name} is expired! Throw it away.`, "danger");
+  } else if (daysLeft <= 2) {
+    statusClass = "danger-row";
+    statusText = "Donate / Urgent";
+    showNotification(`${name} expires in ${daysLeft} days! Donate it!`, "danger");
+  } else if (daysLeft <= 15) {
     statusClass = "warning-row";
     statusText = "Expiring Soon";
     showNotification(`${name} is expiring in ${daysLeft} days!`, "warning");
   } else {
-    statusClass = "danger-row";
-    statusText = "Donate / Urgent";
-    showNotification(`${name} expires in ${daysLeft} days! Donate it!`, "danger");
+    statusClass = "safe";
+    statusText = "Safe";
   }
 
   const table = document.getElementById("productTable");
@@ -70,7 +84,23 @@ function addProduct() {
     <td>${statusText} (${daysLeft} days)</td>
   `;
 
+  sortTable();
+
   document.getElementById("name").value = "";
   document.getElementById("quantity").value = "";
   document.getElementById("expiry").value = "";
+}
+
+// Sort products (urgent first, safe last)
+function sortTable() {
+  const table = document.getElementById("productTable");
+  const rows = Array.from(table.rows);
+
+  rows.sort((a, b) => {
+    const aDays = parseInt(a.cells[3].innerText.match(/(-?\d+)/)[0]);
+    const bDays = parseInt(b.cells[3].innerText.match(/(-?\d+)/)[0]);
+    return aDays - bDays;
+  });
+
+  rows.forEach(row => table.appendChild(row));
 }
