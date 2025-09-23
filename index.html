@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Expiry Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 🔔 Notifications Panel -->
+  <div id="notificationPanel"></div>
+
+  <!-- Login Page -->
+  <div id="loginPage" class="login-container">
+    <div class="login-card">
+      <h1 class="logo">📦 Smart Expiry Tracker</h1>
+      <input type="text" id="username" placeholder="Enter Username">
+      <input type="password" id="password" placeholder="Enter Password">
+      <button onclick="login()">Login</button>
+      <p id="loginError" class="error-text">Invalid username or password!</p>
+      <p class="hint">
+        <b>Demo Credentials:</b><br>
+        Username: <code>admin</code><br>
+        Password: <code>12345</code>
+      </p>
+    </div>
+  </div>
+
+  <!-- Dashboard Page -->
+  <div id="dashboardPage" style="display:none;">
+    <header class="dashboard-header">
+      <h1>📦 Smart Expiry Tracker</h1>
+    </header>
+
+    <div class="form-container">
+      <h2>Add Product</h2>
+      <input type="text" id="name" placeholder="Enter product name" required>
+      <input type="number" id="quantity" placeholder="Enter quantity" required>
+      <input type="date" id="expiry" required>
+      <button onclick="addProduct()">Add Product</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Expiry Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="productTable"></tbody>
+    </table>
+
+    <!-- Floating Logout Button -->
+    <button id="logoutBtn" onclick="logout()">⏻ Logout</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
