@@ -1,0 +1,145 @@
+/* General Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #6dd5ed, #2193b0);
+  color: #333;
+}
+
+/* Notifications */
+#notificationPanel {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 280px;
+  z-index: 1000;
+}
+.notification {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+}
+.info { background: #4caf50; }
+.warning { background: #ff9800; }
+.danger { background: #f44336; }
+
+/* Login */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.login-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  text-align: center;
+  width: 320px;
+}
+.login-card h1 {
+  margin-bottom: 20px;
+}
+.login-card input {
+  width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.login-card button {
+  background: #2193b0;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.login-card button:hover {
+  background: #17647e;
+}
+.hint {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+.error-text {
+  display: none;
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Dashboard */
+.dashboard-header {
+  background: white;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.form-container {
+  background: white;
+  margin: 20px auto;
+  padding: 20px;
+  width: 80%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  text-align: center;
+}
+.form-container input, .form-container button {
+  margin: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.form-container button {
+  background: #2193b0;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.form-container button:hover {
+  background: #17647e;
+}
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+tr:hover {
+  background: #f1f1f1;
+}
+.safe { background: #e8f5e9; }
+.warning-row { background: #fff3e0; }
+.danger-row { background: #ffebee; }
+
+/* Floating Logout Button */
+#logoutBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: red;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+#logoutBtn:hover {
+  background: darkred;
+}
